@@ -40,10 +40,12 @@ function game() {
 
   while (playerWins < 5 && computerWins < 5) {
     let computerChoice = getComputerChoice();
-    if (playRound("rock",computerChoice) == "player") {
+    let playerChoice = prompt("Selection:").toLowerCase();
+
+    if (playRound(playerChoice,computerChoice) == "player") {
       playerWins++;
       console.log("Player: " + playerWins);
-    } else if (playRound("rock",computerChoice) == "computer") {
+    } else if (playRound(playerChoice,computerChoice) == "computer") {
       computerWins++;
       console.log("Computer: " + computerWins);
     }
