@@ -15,6 +15,8 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection) {
+  playerSelection = playerSelection.toLowerCase();
+
   if (playerSelection == computerSelection) {
     return `Tie game! Both players chose ${playerSelection}.`
   } else if (playerSelection == "rock" && computerSelection == "paper") {
@@ -32,4 +34,4 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
-console.log(playRound("rock", getComputerChoice()));
+console.log(playRound("rOck", getComputerChoice()));
