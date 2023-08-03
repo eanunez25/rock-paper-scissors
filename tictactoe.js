@@ -10,7 +10,6 @@ function getComputerChoice() {
     computerChoice = "scissors"
   }
 
-  console.log("Computer's choice: " + computerChoice)
   return computerChoice
 }
 
@@ -44,12 +43,16 @@ function game() {
 
     if (playRound(playerChoice,computerChoice) == "player") {
       playerWins++;
-      console.log("Player: " + playerWins);
+      console.log(`Player wins! Score is ${playerWins} - ${computerWins}`);
     } else if (playRound(playerChoice,computerChoice) == "computer") {
       computerWins++;
-      console.log("Computer: " + computerWins);
+      console.log(`Computer wins! Score is ${playerWins} - ${computerWins}`);
+    } else {
+      console.log(`Tie Game! Score is ${playerWins} - ${computerWins}`);
     }
   }
+
+  playerWins == 5 ? console.log("Player wins match!") : console.log("Computer wins match!")
 }
 
 game();
