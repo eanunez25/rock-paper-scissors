@@ -18,20 +18,36 @@ function playRound(playerSelection, computerSelection) {
   playerSelection = playerSelection.toLowerCase();
 
   if (playerSelection == computerSelection) {
-    return `Tie game! Both players chose ${playerSelection}.`
+    return "tie"
   } else if (playerSelection == "rock" && computerSelection == "paper") {
-    return "Computer wins! Paper beats rock."
+    return "computer"
   } else if (playerSelection == "rock" && computerSelection == "scissors") {
-    return "Player wins! Rock beats scissors."
+    return "player"
   } else if (playerSelection == "paper" && computerSelection == "rock") {
-    return "Player wins! Paper beats rock."
+    return "player"
   } else if (playerSelection == "paper" && computerSelection == "scissors") {
-    return "Computer wins! Scissors beat paper."
+    return "computer"
   } else if (playerSelection == "scissors" && computerSelection == "rock") {
-    return "Computer wins! Rock beats scissors."
+    return "computer"
   } else {
-    return "Player wins! Scissors beat paper."
+    return "player"
   }
 }
 
-console.log(playRound("rOck", getComputerChoice()));
+function game() {
+  let playerWins = 0;
+  let computerWins = 0;
+
+  while (playerWins < 5 && computerWins < 5) {
+    let computerChoice = getComputerChoice();
+    if (playRound("rock",computerChoice) == "player") {
+      playerWins++;
+      console.log("Player: " + playerWins);
+    } else if (playRound("rock",computerChoice) == "computer") {
+      computerWins++;
+      console.log("Computer: " + computerWins);
+    }
+  }
+}
+
+game();
