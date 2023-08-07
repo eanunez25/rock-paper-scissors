@@ -37,15 +37,16 @@ function game(winner) {
 
   if (playerWins < 5 && computerWins < 5) {
     if (winner == "player") {
-      playerWins++;
-      results.innerHTML += (`Player wins! Score is ${playerWins} - ${computerWins}`);
+      playerWins++
+      results.innerHTML += (`Player wins! Score is ${playerWins} - ${computerWins} - ${ties}`);
       results.innerHTML += `<br>`
     } else if (winner == "computer") {
-      computerWins++;
-      results.innerHTML += (`Computer wins! Score is ${playerWins} - ${computerWins}`);
+      computerWins++
+      results.innerHTML += (`Computer wins! Score is ${playerWins} - ${computerWins} - ${ties}`);
       results.innerHTML += '<br>'
     } else {
-      results.innerHTML += (`Tie Game! Score is ${playerWins} - ${computerWins}`);
+      ties++
+      results.innerHTML += (`Tie Game! Score is ${playerWins} - ${computerWins} - ${ties}`);
       results.innerHTML += '<br>'
     }
   }
@@ -59,7 +60,6 @@ function game(winner) {
     paper.style.display = 'none'
     scissors.style.display = 'none'
     reset.addEventListener('click', () => {
-      console.log('boobs')
       results.innerHTML = ""
       playerWins = 0
       computerWins = 0
@@ -70,8 +70,9 @@ function game(winner) {
   }
 }
 
-let playerWins = 0;
-let computerWins = 0;
+let playerWins = 0
+let computerWins = 0
+let ties = 0
 let results = document.querySelector('.results')
 const rock = document.querySelector('.rock')
 const paper = document.querySelector('.paper')
