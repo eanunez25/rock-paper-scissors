@@ -51,7 +51,7 @@ function game(winner) {
   }
 
   if(playerWins == 5 || computerWins == 5) {
-    playerWins == 5 ? console.log("Player wins match!") : console.log("Computer wins match!")
+    playerWins == 5 ? results.innerHTML += "Player wins match!" : results.innerHTML += "Computer wins match!"
   }
 }
 
