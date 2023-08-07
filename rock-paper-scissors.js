@@ -33,26 +33,43 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
-function game() {
-  let playerWins = 0;
-  let computerWins = 0;
+function game(winner) {
 
-  while (playerWins < 5 && computerWins < 5) {
-    let computerChoice = getComputerChoice();
-    let playerChoice = prompt("Selection:").toLowerCase();
-
-    if (playRound(playerChoice,computerChoice) == "player") {
+  if (playerWins < 5 && computerWins < 5) {
+    if (winner == "player") {
       playerWins++;
-      console.log(`Player wins! Score is ${playerWins} - ${computerWins}`);
-    } else if (playRound(playerChoice,computerChoice) == "computer") {
+      results.innerHTML += (`Player wins! Score is ${playerWins} - ${computerWins}`);
+      results.innerHTML += `<br>`
+    } else if (winner == "computer") {
       computerWins++;
-      console.log(`Computer wins! Score is ${playerWins} - ${computerWins}`);
+      results.innerHTML += (`Computer wins! Score is ${playerWins} - ${computerWins}`);
+      results.innerHTML += '<br>'
     } else {
-      console.log(`Tie Game! Score is ${playerWins} - ${computerWins}`);
+      results.innerHTML += (`Tie Game! Score is ${playerWins} - ${computerWins}`);
+      results.innerHTML += '<br>'
     }
   }
 
-  playerWins == 5 ? console.log("Player wins match!") : console.log("Computer wins match!")
+  if(playerWins == 5 || computerWins == 5) {
+    playerWins == 5 ? console.log("Player wins match!") : console.log("Computer wins match!")
+  }
 }
 
-game();
+let playerWins = 0;
+let computerWins = 0;
+let results = document.querySelector('.results')
+const rock = document.querySelector('.rock')
+const paper = document.querySelector('.paper')
+const scissors = document.querySelector('.scissors')
+
+rock.addEventListener('click', () => {
+  game(playRound(rock.innerHTML, getComputerChoice()))
+})
+
+paper.addEventListener ('click', () => {
+  game(playRound(paper.innerHTML, getComputerChoice()))
+})
+
+scissors.addEventListener ('click', () => {
+  game(playRound(scissors.innerHTML, getComputerChoice()))
+})
