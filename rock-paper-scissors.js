@@ -52,6 +52,21 @@ function game(winner) {
 
   if(playerWins == 5 || computerWins == 5) {
     playerWins == 5 ? results.innerHTML += "Player wins match!" : results.innerHTML += "Computer wins match!"
+    const reset = document.createElement('button')
+    reset.innerHTML = "Reset Game"
+    results.appendChild(reset)
+    rock.style.display = 'none'
+    paper.style.display = 'none'
+    scissors.style.display = 'none'
+    reset.addEventListener('click', () => {
+      console.log('boobs')
+      results.innerHTML = ""
+      playerWins = 0
+      computerWins = 0
+      rock.style.display = 'inline'
+      paper.style.display = 'inline'
+      scissors.style.display = 'inline'
+    })
   }
 }
 
