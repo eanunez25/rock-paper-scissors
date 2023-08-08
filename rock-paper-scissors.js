@@ -40,19 +40,23 @@ function game(winner) {
       playerWins++
       results.innerHTML += (`Player wins! Score is ${playerWins} - ${computerWins} - ${ties}`);
       results.innerHTML += `<br>`
+      update.innerHTML = 'Player wins! '
     } else if (winner == "computer") {
       computerWins++
       results.innerHTML += (`Computer wins! Score is ${playerWins} - ${computerWins} - ${ties}`);
       results.innerHTML += '<br>'
+      update.innerHTML = 'Computer wins! '
     } else {
       ties++
       results.innerHTML += (`Tie Game! Score is ${playerWins} - ${computerWins} - ${ties}`);
       results.innerHTML += '<br>'
+      update.innerHTML = 'Tie Game! '
     }
   }
 
   if(playerWins == 5 || computerWins == 5) {
     playerWins == 5 ? results.innerHTML += "Player wins match!" : results.innerHTML += "Computer wins match!"
+    playerWins == 5 ? update.innerHTML = "Player wins match! " : update.innerHTML = "Computer wins match! "
     const reset = document.createElement('button')
     reset.innerHTML = "Reset Game"
     results.appendChild(reset)
@@ -61,6 +65,8 @@ function game(winner) {
     scissors.style.display = 'none'
     reset.addEventListener('click', () => {
       results.innerHTML = ""
+      score.innerHTML = "0 - 0 - 0"
+      update.innerHTML = "Make a selection"
       playerWins = 0
       computerWins = 0
       ties = 0
@@ -80,15 +86,26 @@ let results = document.querySelector('.results')
 const rock = document.querySelector('.rock')
 const paper = document.querySelector('.paper')
 const scissors = document.querySelector('.scissors')
+const score = document.querySelector('.score')
+let update = document.querySelector('.update')
 
 rock.addEventListener('click', () => {
-  game(playRound("rock", getComputerChoice()))
+  let compChoice = getComputerChoice()
+  game(playRound("rock", compChoice))
+  score.innerHTML = `${playerWins} - ${computerWins} - ${ties}`
+  update.innerHTML += `Computer chose ${compChoice}.`
 })
 
 paper.addEventListener ('click', () => {
-  game(playRound("paper", getComputerChoice()))
+  let compChoice = getComputerChoice()
+  game(playRound("paper", compChoice))
+  score.innerHTML = `${playerWins} - ${computerWins} - ${ties}`
+  update.innerHTML += `Computer chose ${compChoice}.`
 })
 
 scissors.addEventListener ('click', () => {
-  game(playRound("scissors", getComputerChoice()))
+  let compChoice = getComputerChoice()
+  game(playRound("scissors", compChoice))
+  score.innerHTML = `${playerWins} - ${computerWins} - ${ties}`
+  update.innerHTML += `Computer chose ${compChoice}.`
 })
