@@ -1,5 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
 body {
   background-color: #ffea00;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
 }
 
 div.selection {
@@ -22,4 +26,19 @@ div.selection button:hover {
 div.selection button:active {
   box-shadow: 0 5px #ffea00;
   transform: translateY(8px);
+}
+
+.banner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.score {
+  font-size: 70px;
+  font-weight: bolder;
+}
+
+.update {
+  font-size: 40px;
 }
