@@ -4,10 +4,13 @@ function getComputerChoice() {
 
   if (randInt == 1) {
     computerChoice = "rock"
+    computerRock++
   } else if (randInt == 2) {
     computerChoice = "paper"
+    computerPaper++
   } else {
     computerChoice = "scissors"
+    computerScissors++
   }
 
   return computerChoice
@@ -116,13 +119,38 @@ function updateStats() {
   let fixedPlayerScissorsWin = playerScissorsWin * 100
   scissorsPlayer.innerHTML = 'Scissors: ' + fixedPlayerScissorsWin.toFixed(1) + '% / ' + fixedPlayerScissorsSelection.toFixed(1) + '%'
 
+  let computerWinPercentage = computerWins / games
+  let fixedComputerWinPercentage = computerWinPercentage*100
+  computerWin.innerHTML = 'Win%: ' + fixedComputerWinPercentage.toFixed(1) + '%'
+
+  let computerRockSelection = computerRock / games
+  let fixedComputerRockSelection = computerRockSelection * 100
+  let computerRockWin = computerWinPercentage * computerRockSelection
+  let fixedComputerRockWin = playerRockWin * 100
+  rockComputer.innerHTML = 'Rock: ' + fixedComputerRockWin.toFixed(1) + '% / ' + fixedComputerRockSelection.toFixed(1) + '%'
+
+  let computerPaperSelection = computerPaper / games
+  let fixedComputerPaperSelection = computerPaperSelection * 100
+  let computerPaperWin = computerWinPercentage * computerPaperSelection
+  let fixedComputerPaperWin = playerPaperWin * 100
+  paperComputer.innerHTML = 'Paper: ' + fixedComputerPaperWin.toFixed(1) + '% / ' + fixedComputerPaperSelection.toFixed(1) + '%'
+
+  let computerScissorsSelection = computerScissors / games
+  let fixedComputerScissorsSelection = computerScissorsSelection * 100
+  let computerScissorsWin = computerWinPercentage * computerScissorsSelection
+  let fixedComputerScissorsWin = playerScissorsWin * 100
+  scissorsComputer.innerHTML = 'Scissors: ' + fixedComputerScissorsWin.toFixed(1) + '% / ' + fixedComputerScissorsSelection.toFixed(1) + '%'
 }
+
 
 let playerWins = 0
 let playerRock = 0
 let playerPaper = 0
 let playerScissors = 0
 let computerWins = 0
+let computerRock = 0
+let computerPaper = 0
+let computerScissors = 0
 let ties = 0
 let games = 0
 let results = document.querySelector('.results')
@@ -137,6 +165,10 @@ const playerWin = document.querySelector('.player-win')
 const rockPlayer = document.querySelector('.rock-player')
 const paperPlayer = document.querySelector('.paper-player')
 const scissorsPlayer = document.querySelector('.scissors-player')
+const computerWin = document.querySelector('.computer-win')
+const rockComputer = document.querySelector('.rock-computer')
+const paperComputer = document.querySelector('.paper-computer')
+const scissorsComputer = document.querySelector('.scissors-computer')
 
 updateDetails()
 
