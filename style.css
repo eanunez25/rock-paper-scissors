@@ -20,7 +20,7 @@ div.selection button {
 } 
 
 div.selection button:hover {
-  top: -8px;
+  top: -15px;
 }
 
 div.selection button:active {
@@ -51,7 +51,7 @@ div.selection button:active {
 }
 
 .results {
-  margin-left: 15%;
+  margin-left: 11%;
 }
 
 .hide {
