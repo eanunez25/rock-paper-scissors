@@ -77,6 +77,9 @@ function game(winner) {
       playerPaper = 0
       playerScissors = 0
       computerWins = 0
+      computerRock = 0
+      computerPaper = 0
+      computerScissors = 0
       ties = 0
       rock.style.display = 'inline'
       paper.style.display = 'inline'
@@ -142,6 +145,31 @@ function updateStats() {
   scissorsComputer.innerHTML = 'Scissors: ' + fixedComputerScissorsWin.toFixed(1) + '% / ' + fixedComputerScissorsSelection.toFixed(1) + '%'
 }
 
+function aiRecommendation(compChoice, winner) {
+
+  if (winner == 'computer') {
+    if (compChoice == 'rock') {
+      return 'paper'
+    } else if (compChoice == 'paper') {
+      return 'scissors'
+    } else {
+      return 'rock'
+    }
+  } else if (winner == 'player') {
+    if (compChoice == 'rock') {
+      return 'scissors'
+    } else if (compChoice == 'paper') {
+      return 'rock'
+    } else {
+      return 'paper'
+    }
+  } else if (winner == 'tie') {
+    console.log(Math.max(computerRock, computerPaper, computerScissors))
+    return "none"
+  }
+
+}
+
 
 let playerWins = 0
 let playerRock = 0
@@ -174,30 +202,36 @@ updateDetails()
 
 rock.addEventListener('click', () => {
   let compChoice = getComputerChoice()
-  game(playRound("rock", compChoice))
+  let winner = playRound("rock", compChoice)
+  game(winner)
   score.innerHTML = `${playerWins} - ${computerWins} - ${ties}`
   update.innerHTML += `Computer chose ${compChoice}.`
   updateDetails()
   playerRock++
   updateStats()
+  ai.innerHTML = "AI Recommendation: " + (aiRecommendation(compChoice, winner))
 })
 
 paper.addEventListener ('click', () => {
   let compChoice = getComputerChoice()
-  game(playRound("paper", compChoice))
+  let winner = playRound("paper", compChoice)
+  game(winner)
   score.innerHTML = `${playerWins} - ${computerWins} - ${ties}`
   update.innerHTML += `Computer chose ${compChoice}.`
   updateDetails()
   playerPaper++
   updateStats()
+  ai.innerHTML = "AI Recommendation: " + (aiRecommendation(compChoice, winner))
 })
 
 scissors.addEventListener ('click', () => {
   let compChoice = getComputerChoice()
-  game(playRound("scissors", compChoice))
+  let winner = playRound("scissors", compChoice)
+  game(winner)
   score.innerHTML = `${playerWins} - ${computerWins} - ${ties}`
   update.innerHTML += `Computer chose ${compChoice}.`
   updateDetails()
   playerScissors++
   updateStats()
+  ai.innerHTML = "AI Recommendation: " + (aiRecommendation(compChoice, winner))
 })
