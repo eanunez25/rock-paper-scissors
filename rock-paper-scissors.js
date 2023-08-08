@@ -82,13 +82,13 @@ const paper = document.querySelector('.paper')
 const scissors = document.querySelector('.scissors')
 
 rock.addEventListener('click', () => {
-  game(playRound(rock.innerHTML, getComputerChoice()))
+  game(playRound("rock", getComputerChoice()))
 })
 
 paper.addEventListener ('click', () => {
-  game(playRound(paper.innerHTML, getComputerChoice()))
+  game(playRound("paper", getComputerChoice()))
 })
 
 scissors.addEventListener ('click', () => {
-  game(playRound(scissors.innerHTML, getComputerChoice()))
+  game(playRound("scissors", getComputerChoice()))
 })
