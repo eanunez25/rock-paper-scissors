@@ -40,5 +40,16 @@ div.selection button:active {
 }
 
 .update {
-  font-size: 40px;
+  font-size: 35px;
+}
+
+.details {
+  display: flex;
+  justify-content: center;
+  gap: 10%;
+  margin-top: 5%;
+}
+
+.hide {
+  display: none;
 }

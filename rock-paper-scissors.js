@@ -67,6 +67,7 @@ function game(winner) {
       results.innerHTML = ""
       score.innerHTML = "0 - 0 - 0"
       update.innerHTML = "Make a selection"
+      updateDetails()
       playerWins = 0
       computerWins = 0
       ties = 0
@@ -74,6 +75,14 @@ function game(winner) {
       paper.style.display = 'inline'
       scissors.style.display = 'inline'
     })
+  }
+}
+
+function updateDetails() {
+  if (update.innerHTML == "Make a selection") {
+    details.className += " hide"
+  } else {
+    details.className = "details"
   }
 }
 
@@ -88,12 +97,16 @@ const paper = document.querySelector('.paper')
 const scissors = document.querySelector('.scissors')
 const score = document.querySelector('.score')
 let update = document.querySelector('.update')
+const details = document.querySelector('.details')
+
+updateDetails()
 
 rock.addEventListener('click', () => {
   let compChoice = getComputerChoice()
   game(playRound("rock", compChoice))
   score.innerHTML = `${playerWins} - ${computerWins} - ${ties}`
   update.innerHTML += `Computer chose ${compChoice}.`
+  updateDetails()
 })
 
 paper.addEventListener ('click', () => {
@@ -101,6 +114,7 @@ paper.addEventListener ('click', () => {
   game(playRound("paper", compChoice))
   score.innerHTML = `${playerWins} - ${computerWins} - ${ties}`
   update.innerHTML += `Computer chose ${compChoice}.`
+  updateDetails()
 })
 
 scissors.addEventListener ('click', () => {
@@ -108,4 +122,5 @@ scissors.addEventListener ('click', () => {
   game(playRound("scissors", compChoice))
   score.innerHTML = `${playerWins} - ${computerWins} - ${ties}`
   update.innerHTML += `Computer chose ${compChoice}.`
+  updateDetails()
 })
