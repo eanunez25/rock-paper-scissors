@@ -63,6 +63,7 @@ function game(winner) {
       results.innerHTML = ""
       playerWins = 0
       computerWins = 0
+      ties = 0
       rock.style.display = 'inline'
       paper.style.display = 'inline'
       scissors.style.display = 'inline'
@@ -73,6 +74,8 @@ function game(winner) {
 let playerWins = 0
 let computerWins = 0
 let ties = 0
+let games = 0
+let playerWinPercentage = ((playerWins / games)*100).toFixed(2)
 let results = document.querySelector('.results')
 const rock = document.querySelector('.rock')
 const paper = document.querySelector('.paper')

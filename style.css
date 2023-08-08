@@ -1,0 +1,25 @@
+body {
+  background-color: #ffea00;
+}
+
+div.selection {
+  display: flex;
+  justify-content: center;
+  gap: 1%;
+}
+
+div.selection button {
+  border: none;
+  padding: 0;
+  background: none;
+  position: relative;
+} 
+
+div.selection button:hover {
+  top: -8px;
+}
+
+div.selection button:active {
+  box-shadow: 0 5px #ffea00;
+  transform: translateY(4px);
+}
