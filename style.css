@@ -50,6 +50,14 @@ div.selection button:active {
   margin-top: 5%;
 }
 
+.results {
+  margin-left: 15%;
+}
+
 .hide {
   display: none;
+}
+
+.bold {
+  font-weight: bolder;
 }
