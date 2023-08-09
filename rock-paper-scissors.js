@@ -129,19 +129,19 @@ function updateStats() {
   let computerRockSelection = computerRock / games
   let fixedComputerRockSelection = computerRockSelection * 100
   let computerRockWin = computerWinPercentage * computerRockSelection
-  let fixedComputerRockWin = playerRockWin * 100
+  let fixedComputerRockWin = computerRockWin * 100
   rockComputer.innerHTML = 'Rock: ' + fixedComputerRockWin.toFixed(1) + '% / ' + fixedComputerRockSelection.toFixed(1) + '%'
 
   let computerPaperSelection = computerPaper / games
   let fixedComputerPaperSelection = computerPaperSelection * 100
   let computerPaperWin = computerWinPercentage * computerPaperSelection
-  let fixedComputerPaperWin = playerPaperWin * 100
+  let fixedComputerPaperWin = computerPaperWin * 100
   paperComputer.innerHTML = 'Paper: ' + fixedComputerPaperWin.toFixed(1) + '% / ' + fixedComputerPaperSelection.toFixed(1) + '%'
 
   let computerScissorsSelection = computerScissors / games
   let fixedComputerScissorsSelection = computerScissorsSelection * 100
   let computerScissorsWin = computerWinPercentage * computerScissorsSelection
-  let fixedComputerScissorsWin = playerScissorsWin * 100
+  let fixedComputerScissorsWin = computerScissorsWin * 100
   scissorsComputer.innerHTML = 'Scissors: ' + fixedComputerScissorsWin.toFixed(1) + '% / ' + fixedComputerScissorsSelection.toFixed(1) + '%'
 }
 
