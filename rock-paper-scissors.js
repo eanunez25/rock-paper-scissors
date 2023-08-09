@@ -235,3 +235,7 @@ scissors.addEventListener ('click', () => {
   updateStats()
   ai.innerHTML = "AI Recommendation: " + (aiRecommendation(compChoice, winner))
 })
+
+// relocate reset button
+// add algorithm for tie for ai rec
+// live preview
